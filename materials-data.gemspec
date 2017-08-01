@@ -9,9 +9,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["thetinahang"]
   spec.email         = ["thetinahang@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{This gem will involve scraping data from the National Institute of Standards and Technology (NIST) Data
+Gateway website.}
+  spec.description   = %q{This gem will involve scraping data from the National Institute of Standards and Technology (NIST) Data
+Gateway website. In particular, the user will be able to search the NIST Online Databases 
+list based on keyword selection. This would help the user, who may be interested in 
+materials informatics, narrow down the number of available databases according to their 
+preference or emphasis in studies.}
+  spec.homepage      = "https://github.com/thetinahang/materials-data-cli-app"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
