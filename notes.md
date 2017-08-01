@@ -3,7 +3,12 @@ What should this gem be able to do?
 1. take the website as a set variable 
 2. prompt the user with keywords
 	- pick keywords that interest you first
-3. take user input 
+		- energy (should be able to pick up on energies)
+		- thermodynamic
+		- structure
+		- algorithms
+		- statistical analysis
+3. take user input (convert to downcase)
 4. collect all of the links on this page
 5. sort the links according to the keywords
 6. return all of the links for one keyword
