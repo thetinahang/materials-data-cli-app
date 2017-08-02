@@ -1,16 +1,29 @@
 require "materials/data/version"
 require "nokogiri"
 
-module Materials
-  module Data
-    # Your code goes here...
-    attr_accessor :keyword
+class Materials::Database
 
-    def initialize(keyword)
-    	@keyword = keyword
+    attr_accessor :database, :title, :link, :desc, :keyword
+
+#    def initialize(keyword)
+#    	@keyword = keyword
+#    end
+
+
+    def self.scrape_nist # only one website to be scraped
+        databases = []
+
+        doc = Nokogiri::HTML(open("https://srdata.nist.gov/gateway/gateway?dblist=1"))
+        database = self.new
+        database.link = doc.search()
+        database.desc = doc.search()
+
+        databases
     end
 
     def self.all
+        # pull up all of the links, everything on the page
+  
     end
 
     def self.find_by_keyword(keyword)
@@ -22,5 +35,4 @@ module Materials
 
 
 
-  end
 end
