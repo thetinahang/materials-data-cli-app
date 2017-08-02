@@ -1,5 +1,6 @@
 require "materials/data/version"
 require "nokogiri"
+require "pry"
 
 class Materials::Database
 
@@ -17,6 +18,8 @@ class Materials::Database
         database.link = doc.search() # URL of the database
         database.desc = doc.search() # paragraph description of the database
         database
+
+        binding.pry
     end
 
     def self.all
