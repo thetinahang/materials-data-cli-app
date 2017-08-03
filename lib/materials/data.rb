@@ -1,8 +1,8 @@
-require "materials/data/version"
+#require "materials/data/version"
 require "nokogiri"
 require "pry"
 
-class Materials::Database
+class MaterialsData::Database
 
     attr_accessor :database, :title, :link, :desc, :keyword
 
