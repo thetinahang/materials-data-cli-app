@@ -1,5 +1,3 @@
-module Materials
-  module Data
+module MaterialsData
     VERSION = "0.1.0"
-  end
 end

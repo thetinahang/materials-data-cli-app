@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require "materials-data-cli-app"
 
 MaterialsData::CLI.new.call
 
