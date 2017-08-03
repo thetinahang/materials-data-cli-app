@@ -1,2 +1,5 @@
-require_relative './materials/data/version'
-require_relative './materials/data/cli'
+require "materials/version.rb"
+
+module MaterialsData
+
+end
