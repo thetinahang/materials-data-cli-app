@@ -6,11 +6,6 @@ class MaterialsData::CLI
 	end 
 
 	def get_databases #here doc?
-		puts <<-DOC.gsub /^\s*/, ''
-			1. 8-Bit Gray Scale Images of Fingerprint Image Groups
-			2. AnthroKids - Anthropometric Data of Children
-			3. Atlas of the Spectrum of a Platinum/Neon Hollow-Cathode Lamp in the Region 1130-4330 Å
-		DOC
 		@databases = MaterialsData::Database.all
 	end	
 	

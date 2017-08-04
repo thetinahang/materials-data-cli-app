@@ -19,14 +19,19 @@ class MaterialsData::Database
         database.desc = doc.search() # paragraph description of the database
         database
 
-        binding.pry
+#        binding.pry
     end
 
     def self.all
         # pull up all of the links, everything on the page
-        databases = []
-        databases << self.scrape_nist
-        databases
+#        databases = []
+#        databases << self.scrape_nist
+#       databases
+        puts <<-DOC.gsub /^\s*/, ''
+            1. 8-Bit Gray Scale Images of Fingerprint Image Groups
+            2. AnthroKids - Anthropometric Data of Children
+            3. Atlas of the Spectrum of a Platinum/Neon Hollow-Cathode Lamp in the Region 1130-4330 Å
+        DOC
     end
 
     def self.find_by_keyword(keyword)
