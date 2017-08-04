@@ -1,10 +1,10 @@
-#require "materials/data/version"
+require "open-uri"
 require "nokogiri"
 require "pry"
 
 class MaterialsData::Database
 
-    attr_accessor :database, :title, :link, :desc, :keyword
+    attr_accessor :database, :title, :url, :desc, :keyword
 
 #    def initialize(keyword)
 #    	@keyword = keyword
@@ -12,14 +12,17 @@ class MaterialsData::Database
 
 
     def self.scrape_nist # only one website to be scraped
+        @databases = []
         doc = Nokogiri::HTML(open("https://srdata.nist.gov/gateway/gateway?dblist=1"))
-        database = self.new
-        database.title = doc.search() # text of the link
-        database.url = doc.search() # URL of the database
-        database.desc = doc.search() # paragraph description of the database
-        database
+       # rows = doc.xpath("//table/tbody")
+        binding.pry
+    #    database = self.new
+     #   database.title = doc.search() # text of the link
+      #  database.url = doc.search() # URL of the database
+       # database.desc = doc.search() # paragraph description of the database
+        #@databases << self
 
-#        binding.pry
+
     end
 
     def self.all

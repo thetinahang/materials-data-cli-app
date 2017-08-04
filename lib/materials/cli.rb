@@ -38,7 +38,7 @@ class MaterialsData::CLI
 					puts "Here are the databases for the keyword, statistical analysis: "
 				when "list"
 					get_databases
-				else
+				else #this puts even when we enter exit
 					puts "Not sure what you want, type list or exit."
 			end
 		end
