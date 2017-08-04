@@ -5,7 +5,7 @@ class MaterialsData::CLI
 		goodbye
 	end 
 
-	def get_databases #here doc?
+	def get_databases
 		@databases = MaterialsData::Database.all
 	end	
 	
@@ -23,7 +23,7 @@ class MaterialsData::CLI
 			puts "statistical analysis"
 			puts "list -- to see all the databases" 
 			input = gets.strip.downcase
-			case input
+			case input #use each 
 				when "energy" 
 					puts "Here are the databases for the keyword, energy: "
 				when "energies" 

@@ -15,7 +15,7 @@ class MaterialsData::Database
         doc = Nokogiri::HTML(open("https://srdata.nist.gov/gateway/gateway?dblist=1"))
         database = self.new
         database.title = doc.search() # text of the link
-        database.link = doc.search() # URL of the database
+        database.url = doc.search() # URL of the database
         database.desc = doc.search() # paragraph description of the database
         database
 
