@@ -2,7 +2,6 @@ class MaterialsData::CLI
 
 	def call
 		menu
-		goodbye
 	end 
 
 	def get_databases
@@ -15,28 +14,28 @@ class MaterialsData::CLI
 		while input != "exit"
 			puts "Please pick a number that is associated to what you're looking for, or type exit:"
 			puts "Here are your options: "
-			puts "Computational File Repository"
-			puts "Experimental Data Repository"
-			puts "Structural Materials Data Demonstration Project ASM"
-			puts "RDA Demonstration Project: DTR/PID & MGI Infrastructure"
-			puts "TMS Springer Integrating Materials and Manufacturing Innovation (IMMI)"
-			puts "list -- to see all the databases" 
+			puts "1 - Computational File Repository"
+			puts "2 - Experimental Data Repository"
+			puts "3 - Structural Materials Data Demonstration Project ASM"
+			puts "4 - RDA Demonstration Project: DTR/PID & MGI Infrastructure"
+			puts "5 - TMS Springer Integrating Materials and Manufacturing Innovation (IMMI)"
+			puts "6 - list -- to see all the databases" 
 			input = gets.strip.downcase
 			case input #use each 
-				when "energy" 
-					puts "Here are the databases for the keyword, energy: "
-				when "energies" 
-					puts "Here are the databases for the keyword, energies: "
-				when "thermodynamic" 
-					puts "Here are the databases for the keyword, thermodynamic: "
-				when "structure" 
-					puts "Here are the databases for the keyword, structure: "
-				when "algorithms" 
-					puts "Here are the databases for the keyword, algorithms: "
-				when "statistical analysis" 
-					puts "Here are the databases for the keyword, statistical analysis: "
-				when "list"
+				when "1" 
+					puts "Here are the databases under Computational File Repository: "
+				when "2" 
+					puts "Here are the databases under Experimental Data Repository: "
+				when "3" 
+					puts "Here are the databases under Structural Materials Data Demonstration Project ASM: "
+				when "4" 
+					puts "Here are the databases under RDA Demonstration Project: DTR/PID & MGI Infrastructure: "
+				when "5" 
+					puts "Here are the databases under TMS Springer Integrating Materials and Manufacturing Innovation (IMMI): "
+				when "6" 
 					get_databases
+				when "exit"
+					goodbye
 				else #this puts even when we enter exit
 					puts "Not sure what you want, type list or exit."
 			end

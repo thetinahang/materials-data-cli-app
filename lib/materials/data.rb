@@ -13,7 +13,7 @@ class MaterialsData::Database
 
     def self.scrape_nist # only one website to be scraped
         @databases = []
-        doc = Nokogiri::HTML(open("https://srdata.nist.gov/gateway/gateway?dblist=1"))
+        doc = Nokogiri::HTML(open("http://nist.matdl.org/dspace/xmlui/community-list"))
        # rows = doc.xpath("//table/tbody")
         binding.pry
     #    database = self.new
