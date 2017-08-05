@@ -4,7 +4,7 @@ require "pry"
 
 class MaterialsData::Database
 
-    attr_accessor :database, :title, :url, :desc, :keyword
+    attr_accessor :database, :titles, :url, :desc, :keyword
 
 #    def initialize(keyword)
 #    	@keyword = keyword
@@ -14,7 +14,18 @@ class MaterialsData::Database
     def self.scrape_nist # only one website to be scraped
         @databases = []
         doc = Nokogiri::HTML(open("http://nist.matdl.org/dspace/xmlui/community-list"))
-       # rows = doc.xpath("//table/tbody")
+        # NIST Computational File Repository
+        computational.titles = doc.search("//ul/li[1]/ul/li/div/div/a/span").text
+        # NIST Experimental Data Repository
+        experimental.titles = doc.search("//ul/li[2]/ul/li/div/div/a/span").text
+        # NIST Structural Materials Data Demonstration  Projects ASM
+        structural.titles = doc.search("//ul/li[3]/ul/li/div/div/a/span").text
+        # RDA Demonstration Project: DTR/PID & MGI Infrastructure
+        rda.titles = doc.search("//ul/li[4]/ul/li/div/div/a/span").text
+        # TMS Springer Integrating Materials and Manufacturing Innovation (IMMI)
+        tms.titles = doc.search("//ul/li[5]/ul/li/div/div/a/span").text
+
+
         binding.pry
     #    database = self.new
      #   database.title = doc.search() # text of the link
