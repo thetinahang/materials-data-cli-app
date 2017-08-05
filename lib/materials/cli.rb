@@ -10,17 +10,16 @@ class MaterialsData::CLI
 	end	
 	
 	def menu
-		puts "NIST Online Databases"
+		puts "NIST Repositories:"
 		input = nil
 		while input != "exit"
-			puts "Please pick a keyword that accurately describes what you're looking for, or type exit:"
+			puts "Please pick a number that is associated to what you're looking for, or type exit:"
 			puts "Here are your options: "
-			puts "energy or energies"
-			puts "thermodynamic"
-			puts "structure"
-			puts "algorithms"
-			puts "algorithms"
-			puts "statistical analysis"
+			puts "Computational File Repository"
+			puts "Experimental Data Repository"
+			puts "Structural Materials Data Demonstration Project ASM"
+			puts "RDA Demonstration Project: DTR/PID & MGI Infrastructure"
+			puts "TMS Springer Integrating Materials and Manufacturing Innovation (IMMI)"
 			puts "list -- to see all the databases" 
 			input = gets.strip.downcase
 			case input #use each 
