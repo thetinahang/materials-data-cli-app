@@ -6,9 +6,9 @@ class MaterialsData::Database
 
     attr_accessor :database_list, :titles, :urls, :input
 
-    def initialize
-        @database_list = database_list
-    end
+ #   def initialize
+  #      @database_list = database_list
+   # end
 
     def self.scrape_nist(input) # only one website to be scraped
         databases =[]
@@ -22,16 +22,14 @@ class MaterialsData::Database
                 comp.urls = doc.search("//ul/li[1]/ul/li/div/div/a/@href").text
                 puts comp.titles
                 puts comp.urls
-                databases << comp
-                puts databases
+                comp
             when "exp" # NIST Experimental Data Repository
                 exp = self.new
                 exp.titles = doc.search("//ul/li[2]/ul/li/div/div/a/span").text
                 exp.urls = doc.search("//ul/li[2]/ul/li/div/div/a/@href").text
                 puts exp.titles
                 puts exp.urls
-                databases << exp
-                puts databases
+                exp
             when "struc" # NIST Structural Materials Data Demonstration Project ASM
                 struc = self.new
                 struc.titles = doc.search("//ul/li[3]/ul/li/div/div/a/span").text
@@ -53,15 +51,19 @@ class MaterialsData::Database
                 puts tms.titles
                 puts tms.urls
                 tms
-            when "list"
-                puts databases               
+            when "list" 
+                all              
         end
 
     end
 
     def self.all
        databases = []
-        databases << self.scrape_nist
+        databases << self.scrape_nist("comp")
+        databases << self.scrape_nist("exp")
+        databases << self.scrape_nist("struc")
+        databases << self.scrape_nist("rda")
+        databases << self.scrape_nist("tms")
        databases
 #        puts <<-DOC.gsub /^\s*/, ''
  #           1. 8-Bit Gray Scale Images of Fingerprint Image Groups
