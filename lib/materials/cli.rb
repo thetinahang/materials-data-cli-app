@@ -12,31 +12,36 @@ class MaterialsData::CLI
 		puts "NIST Repositories:"
 		input = nil
 		while input != "exit"
-			puts "Please pick a number that is associated to what you're looking for, or type exit:"
+			puts "Please pick a keyword that is associated to what you're looking for, or type exit:"
 			puts "Here are your options: "
-			puts "1 - Computational File Repository"
-			puts "2 - Experimental Data Repository"
-			puts "3 - Structural Materials Data Demonstration Project ASM"
-			puts "4 - RDA Demonstration Project: DTR/PID & MGI Infrastructure"
-			puts "5 - TMS Springer Integrating Materials and Manufacturing Innovation (IMMI)"
-			puts "6 - list -- to see all the databases" 
+			puts "comp - Computational File Repository"
+			puts "exp - Experimental Data Repository"
+			puts "struc - Structural Materials Data Demonstration Project ASM"
+			puts "rda - RDA Demonstration Project: DTR/PID & MGI Infrastructure"
+			puts "tms - TMS Springer Integrating Materials and Manufacturing Innovation (IMMI)"
+			puts "list - to see all the databases" 
 			input = gets.strip.downcase
 			case input #use each 
-				when "1" 
+				when "comp" 
 					puts "Here are the databases under Computational File Repository: "
-				when "2" 
+					MaterialsData::Database.scrape_nist(input)
+				when "exp" 
 					puts "Here are the databases under Experimental Data Repository: "
-				when "3" 
+					MaterialsData::Database.scrape_nist(input)
+				when "struc" 
 					puts "Here are the databases under Structural Materials Data Demonstration Project ASM: "
-				when "4" 
+					MaterialsData::Database.scrape_nist(input)
+				when "rda" 
 					puts "Here are the databases under RDA Demonstration Project: DTR/PID & MGI Infrastructure: "
-				when "5" 
+					MaterialsData::Database.scrape_nist(input)
+				when "tms" 
 					puts "Here are the databases under TMS Springer Integrating Materials and Manufacturing Innovation (IMMI): "
-				when "6" 
-					get_databases
+					MaterialsData::Database.scrape_nist(input)
+				when "list" 
+					MaterialsData::Database.scrape_nist(input)
 				when "exit"
 					goodbye
-				else #this puts even when we enter exit
+				else 
 					puts "Not sure what you want, type list or exit."
 			end
 		end
