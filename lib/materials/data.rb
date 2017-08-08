@@ -18,38 +18,38 @@ class MaterialsData::Database
         case input
             when "comp" # NIST Computational File Repository
                 comp = self.new
-                comp.titles = doc.search("//ul/li[1]/ul/li/div/div/a/span").text
-                comp.urls = doc.search("//ul/li[1]/ul/li/div/div/a/@href").text
-                puts comp.titles
-                puts comp.urls
+                comp.titles = doc.search("//ul/li[1]/ul/li/div/div/a/span").text.split(/[a-z](?=[A-Z])/)
+                comp.urls = doc.search("//ul/li[1]/ul/li/div/div/a/@href").text.gsub(/\/dspace/, "-https://materialsdata.nist.gov/dspace").split("-")
+                display_comp = comp.urls.zip(comp.titles)
+                puts display_comp
                 comp
             when "exp" # NIST Experimental Data Repository
                 exp = self.new
-                exp.titles = doc.search("//ul/li[2]/ul/li/div/div/a/span").text
-                exp.urls = doc.search("//ul/li[2]/ul/li/div/div/a/@href").text
-                puts exp.titles
-                puts exp.urls
+                exp.titles = doc.search("//ul/li[2]/ul/li/div/div/a/span").text.split(/[a-z](?=[A-Z])/)
+                exp.urls = doc.search("//ul/li[2]/ul/li/div/div/a/@href").text.gsub(/\/dspace/, "-https://materialsdata.nist.gov/dspace").split("-")
+                display_exp = exp.urls.zip(exp.titles)
+                puts display_exp
                 exp
             when "struc" # NIST Structural Materials Data Demonstration Project ASM
                 struc = self.new
-                struc.titles = doc.search("//ul/li[3]/ul/li/div/div/a/span").text
-                struc.urls = doc.search("//ul/li[3]/ul/li/div/div/a/@href").text
-                puts struc.titles
-                puts struc.urls
+                struc.titles = doc.search("//ul/li[3]/ul/li/div/div/a/span").text.gsub(/[a-z](?=[0-9])/, "\n").split(/[a-z](?=[A-Z])/)
+                struc.urls = doc.search("//ul/li[3]/ul/li/div/div/a/@href").text.gsub(/\/dspace/, "-https://materialsdata.nist.gov/dspace").split("-")
+                display_struc = struc.urls.zip(struc.titles)
+                puts display_struc
                 struc
             when "rda" # RDA Demonstration Project: DTR/PID & MGI Infrastructure
                 rda = self.new
-                rda.titles = doc.search("//ul/li[4]/ul/li/div/div/a/span").text
-                rda.urls = doc.search("//ul/li[4]/ul/li/div/div/a/@href").text
-                puts rda.titles
-                puts rda.urls
+                rda.titles = doc.search("//ul/li[4]/ul/li/div/div/a/span").text.gsub(/[a-z](?=\()/, "\n").split(/[a-z](?=[A-Z])/)
+                rda.urls = doc.search("//ul/li[4]/ul/li/div/div/a/@href").text.gsub(/\/dspace/, "-https://materialsdata.nist.gov/dspace").split("-")
+                display_rda = rda.urls.zip(rda.titles)
+                puts display_rda
                 rda
             when "tms" # TMS Springer Integrating Materials and Manufacturing Innovation (IMMI)
                 tms = self.new
-                tms.titles = doc.search("//ul/li[5]/ul/li/div/div/a/span").text
-                tms.urls = doc.search("//ul/li[5]/ul/li/div/div/a/@href").text
-                puts tms.titles
-                puts tms.urls
+                tms.titles = doc.search("//ul/li[5]/ul/li/div/div/a/span").text.split(/[a-z](?=[A-Z])/)
+                tms.urls = doc.search("//ul/li[5]/ul/li/div/div/a/@href").text.gsub(/\/dspace/, "-https://materialsdata.nist.gov/dspace").split("-")
+                display_tms = tms.urls.zip(tms.titles)
+                puts display_tms
                 tms
             when "list" 
                 all              
