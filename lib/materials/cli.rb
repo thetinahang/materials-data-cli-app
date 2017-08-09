@@ -21,7 +21,7 @@ class MaterialsData::CLI
 			puts "tms - TMS Springer Integrating Materials and Manufacturing Innovation (IMMI)"
 			puts "list - to see all the databases" 
 			input = gets.strip.downcase
-			case input #use each 
+			case input 
 				when "comp" 
 					puts "Here are the databases under Computational File Repository: "
 					MaterialsData::Database.scrape_nist(input)

@@ -10,7 +10,7 @@ class MaterialsData::Database
         case input
             when "comp" # NIST Computational File Repository
                 comp = self.new
-                comp.titles = doc.search("//ul/li[1]/ul/li/div/div/a/span").text.split(/[a-z](?=[A-Z])/)#gsub(/[a-z](?=[A-Z])/, '\0 ')
+                comp.titles = doc.search("//ul/li[1]/ul/li/div/div/a/span").text.split(/[a-z](?=[A-Z])/)
                 comp.urls = doc.search("//ul/li[1]/ul/li/div/div/a/@href").text.gsub(/\/dspace/, "-https://materialsdata.nist.gov/dspace").split("-")
                 display_comp = comp.urls.zip(comp.titles)
                 puts display_comp
@@ -31,7 +31,7 @@ class MaterialsData::Database
                 struc
             when "rda" # RDA Demonstration Project: DTR/PID & MGI Infrastructure
                 rda = self.new
-                rda.titles = doc.search("//ul/li[4]/ul/li/div/div/a/span").text.split(/[a-z](?=[A-Z]|\()/) #.gsub(/[a-z](?=\()/, "\n")
+                rda.titles = doc.search("//ul/li[4]/ul/li/div/div/a/span").text.split(/[a-z](?=[A-Z]|\()/) 
                 rda.urls = doc.search("//ul/li[4]/ul/li/div/div/a/@href").text.gsub(/\/dspace/, "-https://materialsdata.nist.gov/dspace").split("-")
                 display_rda = rda.urls.zip(rda.titles)
                 puts display_rda
