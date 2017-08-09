@@ -1,16 +1,8 @@
-require "open-uri"
-require "nokogiri"
-require "pry"
-
 class MaterialsData::Database
 
-    attr_accessor :database_list, :titles, :urls, :input
+    attr_accessor :titles, :urls
 
- #   def initialize
-  #      @database_list = database_list
-   # end
-
-    def self.scrape_nist(input) # only one website to be scraped
+    def self.scrape_nist(input) 
         databases =[]
         doc = Nokogiri::HTML(open("http://nist.matdl.org/dspace/xmlui/community-list"))
         
@@ -36,7 +28,6 @@ class MaterialsData::Database
                 struc.urls = doc.search("//ul/li[3]/ul/li/div/div/a/@href").text.gsub(/\/dspace/, "-https://materialsdata.nist.gov/dspace").split("-")
                 display_struc = struc.urls.zip(struc.titles)
                 puts display_struc
-                #puts struc.titles
                 struc
             when "rda" # RDA Demonstration Project: DTR/PID & MGI Infrastructure
                 rda = self.new
@@ -59,27 +50,13 @@ class MaterialsData::Database
     end
 
     def self.all
-       databases = []
-        databases << self.scrape_nist("comp")
-        databases << self.scrape_nist("exp")
-        databases << self.scrape_nist("struc")
-        databases << self.scrape_nist("rda")
-        databases << self.scrape_nist("tms")
-       databases
-#        puts <<-DOC.gsub /^\s*/, ''
- #           1. 8-Bit Gray Scale Images of Fingerprint Image Groups
-  #          2. AnthroKids - Anthropometric Data of Children
-   #         3. Atlas of the Spectrum of a Platinum/Neon Hollow-Cathode Lamp in the Region 1130-4330 Å
-    #    DOC
+        databases = []
+            databases << self.scrape_nist("comp")
+            databases << self.scrape_nist("exp")
+            databases << self.scrape_nist("struc")
+            databases << self.scrape_nist("rda")
+            databases << self.scrape_nist("tms")
+        databases
     end
-
-    def self.find_by_keyword(keyword)
-    	self.all.detect do |item|
-    		item.keyword.downcase.strip == keyword.downcase.strip
-    	end
-    end
-
-
-
 
 end

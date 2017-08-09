@@ -1,7 +1,6 @@
 # Materials::Data
 
-This gem will involve scraping data from the National Institute of Standards and Technology (NIST) Data
-Gateway website (https://srdata.nist.gov/gateway/gateway?dblist=1). The website itself contains a table of links. So this gem has a command line interface where the user will be able to search the table with a select number of keywords, given at the prompt, and return a list of links that match the keyword entered. This gem is designed with the intent of making materials informatics resources available to the user. 
+This gem will involve scraping data from the National Institute of Standards and Technology (NIST) Repositories website (http://nist.matdl.org/dspace/xmlui/community-list). The website itself contains links to different databases. So this gem has a command line interface where the user will be able to search the table with a select number of keywords, given at the prompt, and return a list of links that match the keyword entered. This gem is designed with the intent of making materials informatics resources available to the user. 
 
 ## Installation
 
@@ -21,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once installed and running, run materials-data. 
 
 ## Development
 
@@ -31,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/materials-data.
+Bug reports and pull requests are welcome on GitHub at https://github.com/thetinahang/materials-data-cli-app.
 
 ## License
 
