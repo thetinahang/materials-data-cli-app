@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-#shebang
 
 require_relative "../lib/materials"
 

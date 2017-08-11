@@ -24,10 +24,12 @@ class MaterialsData::CLI
 			puts "6 - list - to see all the databases" 
 			input = gets.strip.downcase
 
-			if input.to_i.between?(1,6)
+			if input.to_i.between?(1,5)
 				keyword = KEYWORDS[input.to_i - 1]
 				puts "Here are the databases for the keyword you picked:"
-				MaterialsData::Scraper.scrape_nist(keyword)
+				MaterialsData::Database.display(keyword)
+			elsif input == "6"
+				MaterialsData::Database.all
 			elsif input == "exit"
 				goodbye
 			else
