@@ -1,11 +1,6 @@
 class MaterialsData::Database
 
-    attr_accessor :titles, :urls, :keyword
-
-    # def initialize
-    #     @titles = titles
-    #     @urls
-    # end
+    attr_accessor :titles, :urls
 
     def self.display(keyword)
         display = MaterialsData::Scraper.scrape_nist(keyword).urls.zip(MaterialsData::Scraper.scrape_nist(keyword).titles)
